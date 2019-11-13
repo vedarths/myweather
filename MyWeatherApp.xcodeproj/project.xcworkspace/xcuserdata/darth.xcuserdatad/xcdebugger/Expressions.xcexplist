@@ -3,7 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "WeatherViewModel.temperature.getter:WeatherViewModel.swift">
+         contextName = "closure #1 in GatewayClient.taskForGETMethod(_:_:_:completionHandlerForGET:):GatewayClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GatewayClient.gatewayURL(_:withPathExtension:):GatewayClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "components.url">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "WeatherClient.weatherURL(_:withPathExtension:):WeatherClient.swift">
@@ -15,6 +23,12 @@
                value = "components.url!.absoluteString">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GatewayClient.taskForGETMethod(_:_:parameters:completionHandlerForGET:):GatewayClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "WeatherViewModel.temperature.getter:WeatherViewModel.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

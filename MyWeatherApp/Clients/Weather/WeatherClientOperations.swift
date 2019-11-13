@@ -17,7 +17,7 @@ extension WeatherClient {
             WeatherClient.WeatherParameterKeys.APIKey    : WeatherClient.WeatherParameterValues.APIKey
             ] as [String : Any]
         
-        _ = taskForGETMethod(parameters: parameters as [String : AnyObject]) { (data, error) in
+      _ = taskForGETMethod(parameters: parameters as [String : AnyObject]) { (data, error) in
             if let error = error {
                 completion(nil, error)
                 return

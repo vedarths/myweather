@@ -21,6 +21,12 @@
 		BE0DB9A12351DCAB0074A6BB /* WeatherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DB9A02351DCAB0074A6BB /* WeatherConstants.swift */; };
 		BE0DB9A32351DDFC0074A6BB /* WeatherClientOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DB9A22351DDFC0074A6BB /* WeatherClientOperations.swift */; };
 		BE0DB9A82351E16A0074A6BB /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0DB9A72351E1690074A6BB /* WeatherViewModel.swift */; };
+		BE1ABAAF237CA52100151AB5 /* GatewayClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1ABAAE237CA52100151AB5 /* GatewayClient.swift */; };
+		BE1ABAB1237CA56C00151AB5 /* GatewayClientOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1ABAB0237CA56C00151AB5 /* GatewayClientOperations.swift */; };
+		BE1ABAB3237CA58900151AB5 /* GatewayClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1ABAB2237CA58900151AB5 /* GatewayClientConstants.swift */; };
+		BE1ABAB5237CA71200151AB5 /* StoreOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1ABAB4237CA71200151AB5 /* StoreOrdersViewModel.swift */; };
+		BE1ABAB8237CA73400151AB5 /* StoreOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1ABAB7237CA73400151AB5 /* StoreOrders.swift */; };
+		BE1ABABA237CB47F00151AB5 /* StoreOrderContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1ABAB9237CB47F00151AB5 /* StoreOrderContentView.swift */; };
 		BE8095EF2353319600FAFE0C /* PlacesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8095EE2353319600FAFE0C /* PlacesClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +68,12 @@
 		BE0DB9A02351DCAB0074A6BB /* WeatherConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConstants.swift; sourceTree = "<group>"; };
 		BE0DB9A22351DDFC0074A6BB /* WeatherClientOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClientOperations.swift; sourceTree = "<group>"; };
 		BE0DB9A72351E1690074A6BB /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		BE1ABAAE237CA52100151AB5 /* GatewayClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayClient.swift; sourceTree = "<group>"; };
+		BE1ABAB0237CA56C00151AB5 /* GatewayClientOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayClientOperations.swift; sourceTree = "<group>"; };
+		BE1ABAB2237CA58900151AB5 /* GatewayClientConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayClientConstants.swift; sourceTree = "<group>"; };
+		BE1ABAB4237CA71200151AB5 /* StoreOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOrdersViewModel.swift; sourceTree = "<group>"; };
+		BE1ABAB7237CA73400151AB5 /* StoreOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOrders.swift; sourceTree = "<group>"; };
+		BE1ABAB9237CB47F00151AB5 /* StoreOrderContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOrderContentView.swift; sourceTree = "<group>"; };
 		BE8095EE2353319600FAFE0C /* PlacesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +169,7 @@
 		BE0DB9992351DA5F0074A6BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE1ABAB6237CA71C00151AB5 /* Gateway */,
 				BE8095F72353333500FAFE0C /* Flickr */,
 				BE0DB99A2351DA760074A6BB /* Weather.swift */,
 			);
@@ -166,6 +179,7 @@
 		BE0DB99C2351DB0E0074A6BB /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				BE1ABAAD237CA4FB00151AB5 /* Gateway */,
 				BE8095F02353319C00FAFE0C /* Flickr */,
 				BE8095ED2353318200FAFE0C /* Places */,
 				BE8095EC2353317200FAFE0C /* Weather */,
@@ -177,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0DB96D2351D9430074A6BB /* ContentView.swift */,
+				BE1ABAB9237CB47F00151AB5 /* StoreOrderContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,8 +200,27 @@
 			isa = PBXGroup;
 			children = (
 				BE0DB9A72351E1690074A6BB /* WeatherViewModel.swift */,
+				BE1ABAB4237CA71200151AB5 /* StoreOrdersViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BE1ABAAD237CA4FB00151AB5 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				BE1ABAAE237CA52100151AB5 /* GatewayClient.swift */,
+				BE1ABAB0237CA56C00151AB5 /* GatewayClientOperations.swift */,
+				BE1ABAB2237CA58900151AB5 /* GatewayClientConstants.swift */,
+			);
+			path = Gateway;
+			sourceTree = "<group>";
+		};
+		BE1ABAB6237CA71C00151AB5 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				BE1ABAB7237CA73400151AB5 /* StoreOrders.swift */,
+			);
+			path = Gateway;
 			sourceTree = "<group>";
 		};
 		BE8095EC2353317200FAFE0C /* Weather */ = {
@@ -355,10 +389,16 @@
 				BE0DB9672351D9430074A6BB /* AppDelegate.swift in Sources */,
 				BE0DB96C2351D9430074A6BB /* MyWeatherApp.xcdatamodeld in Sources */,
 				BE0DB96E2351D9430074A6BB /* ContentView.swift in Sources */,
+				BE1ABAB5237CA71200151AB5 /* StoreOrdersViewModel.swift in Sources */,
 				BE0DB9A32351DDFC0074A6BB /* WeatherClientOperations.swift in Sources */,
+				BE1ABABA237CB47F00151AB5 /* StoreOrderContentView.swift in Sources */,
 				BE0DB9A82351E16A0074A6BB /* WeatherViewModel.swift in Sources */,
+				BE1ABAB1237CA56C00151AB5 /* GatewayClientOperations.swift in Sources */,
 				BE0DB9692351D9430074A6BB /* SceneDelegate.swift in Sources */,
+				BE1ABAB3237CA58900151AB5 /* GatewayClientConstants.swift in Sources */,
 				BE8095EF2353319600FAFE0C /* PlacesClient.swift in Sources */,
+				BE1ABAB8237CA73400151AB5 /* StoreOrders.swift in Sources */,
+				BE1ABAAF237CA52100151AB5 /* GatewayClient.swift in Sources */,
 				BE0DB99F2351DB280074A6BB /* WeatherClient.swift in Sources */,
 				BE0DB9A12351DCAB0074A6BB /* WeatherConstants.swift in Sources */,
 				BE0DB99B2351DA760074A6BB /* Weather.swift in Sources */,
