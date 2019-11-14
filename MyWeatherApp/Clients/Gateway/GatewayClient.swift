@@ -32,14 +32,12 @@ public class GatewayClient {
         
         /* add standard headers */
         request.httpMethod = "GET"
-      
-        let authenticatinConfig = URLSessionConfiguration.default
-        let userString = "demo:password"
-        let userPasswordData = userString.data(using: String.Encoding.utf8, allowLossyConversion: true)
-        let base64EncodedCredential = userPasswordData!.base64EncodedData(options: [])
-        let authString = "Basic \(base64EncodedCredential)"
-        authenticatinConfig.httpAdditionalHeaders = ["Authorization" : authString]
-        let session = URLSession(configuration: authenticatinConfig)
+        let userName = "demo"
+        let password = "password"
+        let loginData = String(format: "%:%", userName, password)
+        let base64LoginData = Data(loginData.utf8).base64EncodedString()
+        request.setValue("Basic \(base64LoginData)", forHTTPHeaderField: "Authorization")
+        
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -142,7 +140,8 @@ public class GatewayClient {
         
         var components = URLComponents()
         components.scheme = GatewayClient.Constants.ApiScheme
-        components.host = GatewayClient.Constants.ApiHost.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        components.host = GatewayClient.Constants.ApiHost
+        components.port = GatewayClient.Constants.ApiPort
         components.path = GatewayClient.Constants.ApiPath + (withPathExtension ?? "")
         components.queryItems = [URLQueryItem]()
         if (!parameters.isEmpty) {

@@ -12,7 +12,8 @@ extension GatewayClient {
     
     struct Constants {
         static let ApiScheme = "http"
-        static let ApiHost = "localhost:8080"
+        static let ApiHost = "localhost"
+        static let ApiPort = 8080
         static let ApiPath = "/v1/retail/order/get/"
     }
     
