@@ -17,8 +17,8 @@ struct StoreOrderContentView: View {
     }
     var body: some View {
         VStack(alignment: .center) {
-            TextField("Enter Store Id", text: self.$storeOrderViewModel.storeId) {
-                self.storeOrderViewModel.search()
+            TextField("Enter Order Number to receipt", text: self.$storeOrderViewModel.orderNumber) {
+                self.storeOrderViewModel.receipt()
             }.font(.custom("Arial", size: 50))
                 .padding()
                 .fixedSize()

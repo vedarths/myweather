@@ -14,8 +14,8 @@ extension GatewayClient {
         static let ApiScheme = "http"
         static let ApiHost = "localhost"
         static let ApiPort = 8080
-        static let RetailApiPath = "/v1/retail/"
-        static let GetOrderApiPath = "order/get/"
+        static let RetailApiPath = "/v1/retail"
+        static let GetOrderApiPath = "/order/get/"
         static let ReceiptOrderApiPath = "/order/receipt/"
     }
     

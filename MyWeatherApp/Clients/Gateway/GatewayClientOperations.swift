@@ -40,7 +40,7 @@ extension GatewayClient {
         let storeOrderToReceipt = try? jsonEncoder.encode(storeOrder)
         
         let jsonBody = String(data: storeOrderToReceipt!, encoding: String.Encoding.utf8)
-        let receiptOrderApiPath = GatewayClient.Constants.ReceiptOrderApiPath + storeOrder.storeId!
+        let receiptOrderApiPath = GatewayClient.Constants.ReceiptOrderApiPath + storeOrder.orderNumber!
         let _ = taskForPOSTMethod(receiptOrderApiPath, jsonBody: jsonBody!) { (result, error) in
             
             /* 3. Send the desired value(s) to completion handler */

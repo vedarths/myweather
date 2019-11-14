@@ -14,6 +14,7 @@ class StoreOrdersViewModel: ObservableObject {
     private var gatewayClient: GatewayClient!
     
     @Published var storeOrders : StoreOrderResponse!
+    @Published var receiptResult : String!
     
     init() {
         gatewayClient = GatewayClient()
@@ -27,12 +28,30 @@ class StoreOrdersViewModel: ObservableObject {
         }
     }
     
+    var orderNumber: String = ""
+    func receipt() {
+        if let orderNumber = self.orderNumber.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            receiptOrder(orderNumber: orderNumber)
+        }
+    }
     
     private func fetchOrders(storeId: String) {
         self.gatewayClient.getOrders(storeId: storeId) { (storeOrders, error) in
             if let storeOrders = storeOrders {
                 DispatchQueue.main.async {
                     self.storeOrders = storeOrders
+                }
+            }
+        }
+    }
+    
+    private func receiptOrder(orderNumber: String) {
+        let orderLine = OrderLine(partNumber: "APPIP11256GBGRY", serialNumber: "SERAPP123455", quantity: 1)
+        let storeOrder = StoreOrder(storeId: "SR001", orderNumber: orderNumber, storeOrderItems: [orderLine])
+        self.gatewayClient.receiptOrder(storeOrder: storeOrder) { (result, error) in
+            if let result = result {
+                DispatchQueue.main.async {
+                    self.receiptResult = result
                 }
             }
         }
