@@ -12,13 +12,13 @@ struct StoreOrderResponse : Decodable {
     let storeOrders : [StoreOrder]
 }
 
-struct StoreOrder : Decodable {
+struct StoreOrder : Decodable , Encodable {
     var storeId: String?
     var orderNumber : String?
     var storeOrderItems : [OrderLine]
 }
 
-struct OrderLine: Decodable {
+struct OrderLine: Decodable, Encodable {
     var partNumber: String?
     var serialNumber : String?
     var quantity: Int?

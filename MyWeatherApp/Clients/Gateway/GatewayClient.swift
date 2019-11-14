@@ -150,7 +150,7 @@ public class GatewayClient {
         components.scheme = GatewayClient.Constants.ApiScheme
         components.host = GatewayClient.Constants.ApiHost
         components.port = GatewayClient.Constants.ApiPort
-        components.path = GatewayClient.Constants.ApiPath + (withPathExtension ?? "")
+        components.path = GatewayClient.Constants.RetailApiPath + (withPathExtension ?? "")
         components.queryItems = [URLQueryItem]()
         if (!parameters.isEmpty) {
             for (key, value) in parameters {
