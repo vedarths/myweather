@@ -34,7 +34,7 @@ public class GatewayClient {
         request.httpMethod = "GET"
         let userName = "demo"
         let password = "password"
-        let loginData = String(format: "%:%", userName, password)
+        let loginData = String(format: "%@:%@", userName, password)
         let base64LoginData = Data(loginData.utf8).base64EncodedString()
         request.setValue("Basic \(base64LoginData)", forHTTPHeaderField: "Authorization")
         
