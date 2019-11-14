@@ -20,6 +20,14 @@ public class GatewayClient {
         return Singleton.shared
     }
     
+    fileprivate func addAuthHeaderToRequest(_ request: NSMutableURLRequest?) {
+        let userName = "demo"
+        let password = "password"
+        let loginData = String(format: "%@:%@", userName, password)
+        let base64LoginData = Data(loginData.utf8).base64EncodedString()
+        request?.setValue("Basic \(base64LoginData)", forHTTPHeaderField: "Authorization")
+    }
+    
     func taskForGETMethod(_ method: String? = nil, _ customUrl : URL? = nil, _ parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: Data?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         /* 2/3. Build the URL, Configure the request */
@@ -32,11 +40,8 @@ public class GatewayClient {
         
         /* add standard headers */
         request.httpMethod = "GET"
-        let userName = "demo"
-        let password = "password"
-        let loginData = String(format: "%@:%@", userName, password)
-        let base64LoginData = Data(loginData.utf8).base64EncodedString()
-        request.setValue("Basic \(base64LoginData)", forHTTPHeaderField: "Authorization")
+        addMediaTypeHeader(request)
+        addAuthHeaderToRequest(request)
         
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
@@ -77,15 +82,18 @@ public class GatewayClient {
         return task
     }
     
+    fileprivate func addMediaTypeHeader(_ request: NSMutableURLRequest) {
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    }
+    
     func taskForPOSTMethod(_ method: String, jsonBody: String, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         let request = NSMutableURLRequest(url: gatewayURL([String:AnyObject](), withPathExtension: method))
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        addMediaTypeHeader(request)
+        addAuthHeaderToRequest(request)
         request.httpBody = jsonBody.data(using: String.Encoding.utf8)
-        
-        
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -152,7 +160,6 @@ public class GatewayClient {
         }
         return components.url!
     }
-    
     
 }
 
